@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
-import countriesReducer from "./countriesReducer"
 
-const reducers = combineReducers({
-  countries: countriesReducer
-})
+import counter from "./counter";
+import countries from "./country";
 
-export default reducers;
+const createRootReducer = () =>
+  combineReducers({
+    counter,
+    countries
+  })
 
-export type RootState = ReturnType<typeof reducers>;
+export default createRootReducer
