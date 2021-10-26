@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import addCounter from '../../redux/actions/counter'
 import { useSelector } from 'react-redux'
@@ -10,12 +10,8 @@ const Counter : React.FC= () => {
   useCountry()
   const count = useSelector((state: AppState) => state.counter.count)
   const dispatch = useDispatch()
-  // const [nuoc, setNuoc] = useState([])
+  const country = useSelector((state: AppState) => state.countries.allCountries)
 
-  // useSelector((state: AppState) => state.countries.allCountries.map((result) => (
-  //   `${setNuoc(result)}`
-  // ))) 
-  
   const handleClick = () => {
     dispatch(addCounter())
   }
@@ -24,6 +20,13 @@ const Counter : React.FC= () => {
     <div>
       <p>{count}</p>
       <button onClick={handleClick}>Add number</button>
+      <p>
+        {country.map((value) => 
+          value.languages.map((element) => (
+            element.name
+          ))
+        )}
+      </p>            
     </div>
   )
 }

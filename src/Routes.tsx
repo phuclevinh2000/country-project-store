@@ -4,7 +4,6 @@ import Counter from './components/Counter/Counter';
 
 import Header from './components/Header/Header'
 import Home from './components/Home/Home';
-import MoreDetail from './components/MoreDetail/MoreDetail';
 
 
 const Routes : React.FC = () => {
@@ -14,7 +13,6 @@ const Routes : React.FC = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/counter" component={Counter} />
-        <Route exact path="/:id" component={MoreDetail} />
       </Switch>
     </BrowserRouter>
   )

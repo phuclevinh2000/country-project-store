@@ -41,3 +41,15 @@ export type AppState = {
   counter: CounterState
   countries: CountryState
 }
+
+// Type for components
+export type SearchProps = {
+  filters: string
+  filterChange: any
+}
+
+export type MuiTable = {
+  list: Country;
+  page: number;
+  rowsPerPage: number;
+}
