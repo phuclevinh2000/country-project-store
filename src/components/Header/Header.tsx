@@ -1,13 +1,16 @@
 import React from 'react'
 import HeaderRight from './HeaderRight/HeaderRight'
 import HeaderLeft from './HeaderLeft/HeaderLeft'
+import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
 
 const Header:React.FC = () => {
   return (
     <Title>
-      <HeaderLeft />
+      <Link to={`/`}>
+       <HeaderLeft />
+      </Link>
       <HeaderRight />
     </Title>
   )

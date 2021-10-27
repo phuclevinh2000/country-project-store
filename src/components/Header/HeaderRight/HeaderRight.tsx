@@ -6,15 +6,23 @@ import GlobalStyle from "../../../styles/global"
 import ThemeContext from '../../../contexts/ThemeContext'
 import { lightTheme, darkTheme } from '../../../styles/themes'
 import useThemeMode from '../../../hooks/useThemeMode'
+import { Link } from 'react-router-dom'
 
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import CodeIcon from '@material-ui/icons/Code';
 import styled from 'styled-components'
 
+// import { useSelector } from 'react-redux';
+// import { AppState, Favorite } from '../../../types/types'
+// import { useDispatch } from 'react-redux';
+
 const HeaderRight : React.FC = () => {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  // const favoriteList = useSelector((state: AppState) => state.favorites.inCart)
+  // const dispatch = useDispatch()
   return (
     <NavMenu>
       <ThemeContext>
@@ -41,6 +49,10 @@ const HeaderRight : React.FC = () => {
           <CodeIcon style={{ fontSize: 30, color: 'white'}}/>
           <span>Source Code</span>
       </a>
+
+      <Link to={'/cart'}>
+        Cart
+      </Link>
       
     </NavMenu>
   )

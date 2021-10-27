@@ -16,6 +16,9 @@ import { useDispatch } from 'react-redux'
 import { AppState, Favorite } from '../../types/types'
 import addFavorite from '../../redux/actions/favorites';
 import { removeFavorite } from '../../redux';
+// link
+import { Link } from 'react-router-dom'
+// import MoreDetail from '../MoreDetail/MoreDetail';
 
 const StyledTableCell = styled(TableCell)(({ theme }: any) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -42,11 +45,13 @@ const StyledTableRow = styled(TableRow)(({ theme }: any) => ({
 export default function CustomizedTables({ list, page, rowsPerPage }: any) {
   const dispatch = useDispatch()
   const favoriteList = useSelector((state: AppState) => state.favorites.inCart)
+  // const [ added, setAdded] = useState(false)
   // console.log(favoriteList)
 
   
   // need to find algorithm for if found same name, then delete both in store.
   const handleFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // setAdded(!added)
     let favorite: Favorite = {
       id: (+new Date()).toString(),
       name: e.currentTarget.getAttribute('value'),
@@ -70,6 +75,7 @@ export default function CustomizedTables({ list, page, rowsPerPage }: any) {
             <StyledTableCell align="left">Lang</StyledTableCell>
             <StyledTableCell align="left">Region</StyledTableCell>
             <StyledTableCell align="left">Add to store</StyledTableCell>
+            <StyledTableCell align="left"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -80,8 +86,8 @@ export default function CustomizedTables({ list, page, rowsPerPage }: any) {
             .map((row: any) => (
               <StyledTableRow key={row.name}>
                 <StyledTableCell component="th" scope="row">
-                  {/* {row.flag} */}
-                  {<img src={row.flag} alt="#" />}
+                  {/* {row.flag} */}                 
+                    <img src={row.flag} alt="#" /> 
                 </StyledTableCell>
                 <StyledTableCell align="left">{row.name}</StyledTableCell>
                 <StyledTableCell align="left">
@@ -99,6 +105,11 @@ export default function CustomizedTables({ list, page, rowsPerPage }: any) {
                 <StyledTableCell align="left">{row.region}</StyledTableCell>
                 <StyledTableCell align="left">
                   <button value={row.name} onClick={handleFavorite}>Add</button>
+                </StyledTableCell>
+                <StyledTableCell>
+                  <Link to={`/moredetail/${row.name}`}>
+                    More Detail
+                  </Link>
                 </StyledTableCell>
               </StyledTableRow>
             ))

@@ -74,3 +74,6 @@ export type SearchProps = {
   filterChange: any
 }
 
+export type CountryParams = {
+  id: string | undefined
+}

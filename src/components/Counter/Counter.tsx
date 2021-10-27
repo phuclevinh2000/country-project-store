@@ -1,9 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { AppState } from '../../types/types'
 // import { fetchData } from '../../redux/actions/country'
-import useCountry from '../../hooks/useCountries'
 
 const Counter : React.FC= () => {
   // useCountry()
