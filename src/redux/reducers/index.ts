@@ -1,12 +1,11 @@
 import { combineReducers } from "redux";
-
-import counter from "./counter";
 import countries from "./country";
+import favorites from "./favorites";
 
 const createRootReducer = () =>
   combineReducers({
-    counter,
-    countries
+    favorites,
+    countries,
   })
 
 export default createRootReducer

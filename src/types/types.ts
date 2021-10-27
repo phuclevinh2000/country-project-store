@@ -1,6 +1,3 @@
-export const ADD_COUNTER = 'ADD_COUNTER'
-export const FETCH_COUNTRIES = 'FETCH_COUNTRIES'
-
 // Type for country to fetch api
 export type Language = {
   name: string
@@ -17,6 +14,42 @@ export type Country = {
   nativeName: string
 }
 
+export const FETCH_COUNTRIES = 'FETCH_COUNTRIES'
+export const ADD_FAVORITE = 'ADD_COUNTRY'
+export const DELETE_FAVORITE = 'DELETE_COUNTRY'
+
+export type AddFavoriteAction = {
+  type: typeof ADD_FAVORITE,
+  payload: {
+    favorite: Favorite
+  }
+}
+
+export type DeleteFavoriteAction = {
+  type: typeof DELETE_FAVORITE,
+  payload: {
+    favorite: Favorite
+  }
+}
+
+export type Favorite = {
+  id: string,
+  name: string | null,
+  flags: string
+}
+
+export type FavoriteProps = {
+  FavoriteObj: Favorite
+}
+
+export type FavoriteState = {
+  inCart: Favorite[]
+}
+
+export type FavoriteAction = AddFavoriteAction | DeleteFavoriteAction
+
+
+// fetch
 export type FetchCountryAction = {
   type: typeof FETCH_COUNTRIES
   payload: {
@@ -28,19 +61,12 @@ export type CountryState = {
   allCountries: Country[]
 }
 
-// Type for increasing number
-export type AddCOunterAction = {
-  type: typeof ADD_COUNTER
-}
-
-export type CounterState = {
-  count: number
-}
 
 export type AppState = {
-  counter: CounterState
   countries: CountryState
+  favorites: FavoriteState
 }
+
 
 // Type for components
 export type SearchProps = {
@@ -48,8 +74,3 @@ export type SearchProps = {
   filterChange: any
 }
 
-export type MuiTable = {
-  list: Country;
-  page: number;
-  rowsPerPage: number;
-}

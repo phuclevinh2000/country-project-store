@@ -5,14 +5,15 @@ import thunk from "redux-thunk";
 import { AppState } from "../types/types";
 import createRootReducer from "./reducers";
 
-import rootSaga from "./sagas";
+// import rootSaga from "./sagas";
 
 const initState: AppState = {
-  counter: {
-    count: 0
-  },
+
   countries: {
     allCountries: []
+  },
+  favorites: {
+    inCart: []
   }
 }
 
@@ -33,7 +34,7 @@ export default function makeStore(initialState = initState) {
     composeEnhancers(applyMiddleware(...middlewares))
   )
 
-  sagaMiddleware.run(rootSaga)
+  // sagaMiddleware.run(rootSaga)
 
   if ((module as any).hot) {
     ;(module as any).hot.accept('./reducers', () => {

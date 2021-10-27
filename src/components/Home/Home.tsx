@@ -44,13 +44,18 @@ const Home: React.FC = () => {
         country.name.toLowerCase().includes(filters.toLowerCase())
       )
     : response;
+
   if (!list) {
     return <div>Loading...</div>;
   } else
     return (
       <div>
         <Search filters={filters} filterChange={filterChange} />
-        <MUITable list={list} page={page} rowsPerPage={rowsPerPage} />
+        <MUITable 
+          list={list} 
+          page={page} 
+          rowsPerPage={rowsPerPage} 
+        />
         <TablePagination
           rowsPerPageOptions={[5, 10, 20, 250]}
           component="div"
