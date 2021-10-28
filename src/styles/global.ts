@@ -22,6 +22,7 @@ const globalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    /* overflow-x: hidden; */
   }
 
   body  {
@@ -33,11 +34,12 @@ const globalStyle = createGlobalStyle`
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
+    color: ${({ theme }: GlobalThemeProps) => theme.color};
   }
 
   h1 {
     font-size: 3.375rem;
-    color: ${({ theme }: GlobalThemeProps) => theme.text};
+    color: ${({ theme }: GlobalThemeProps) => theme.color};
   }
 
 `;

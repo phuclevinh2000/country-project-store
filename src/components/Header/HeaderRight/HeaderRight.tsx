@@ -7,24 +7,23 @@ import ThemeContext from '../../../contexts/ThemeContext'
 import { lightTheme, darkTheme } from '../../../styles/themes'
 import useThemeMode from '../../../hooks/useThemeMode'
 import { Link } from 'react-router-dom'
+import "./header.scss"
+import { useSelector } from 'react-redux'
+import { AppState } from '../../../types/types'
 
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import CodeIcon from '@material-ui/icons/Code';
-import styled from 'styled-components'
-
-// import { useSelector } from 'react-redux';
-// import { AppState, Favorite } from '../../../types/types'
-// import { useDispatch } from 'react-redux';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const HeaderRight : React.FC = () => {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const favoriteList = useSelector((state: AppState) => state.favorites.inCart)
+  const len = favoriteList.length;
 
-  // const favoriteList = useSelector((state: AppState) => state.favorites.inCart)
-  // const dispatch = useDispatch()
   return (
-    <NavMenu>
+    <div className="navBar">
       <ThemeContext>
         <ThemeProvider theme={themeMode}>
           <GlobalStyle />
@@ -50,55 +49,17 @@ const HeaderRight : React.FC = () => {
           <span>Source Code</span>
       </a>
 
-      <Link to={'/cart'}>
-        Cart
+      <Link to={'/cart'} className="link">
+        <span>
+          <FavoriteIcon /> 
+          <p>Favorite</p>
+          <h2>{len}</h2>
+        </span>
       </Link>
       
-    </NavMenu>
+    </div>
   )
 }
 
 export default HeaderRight
 
-const NavMenu = styled.div`
-  display: flex;
-  flex: 1;
-  margin-left: 25px;
-  justify-content: flex-end;
-  align-items: center;
-
-  a {
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    cursor: pointer;
-    text-decoration: none;
-    span {
-        font-size: 13px;
-        letter-spacing: 1.4px;
-        position: relative;
-        padding: 0 5px;
-        color: white;
-        
-        &:after {                   //make the hover effect on the navbar menu
-            content: "";
-            height: 2px;
-            background: white;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -6px;
-            opacity: 0;
-            transform-origin: left center;
-            transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-            transform: scaleX(0);
-        }
-    }
-    &:hover {                       //make the hover effect on the navbar menu
-        span:after {
-            transform: scaleX(1);
-            opacity: 1;
-        }
-    }
-  }
-`

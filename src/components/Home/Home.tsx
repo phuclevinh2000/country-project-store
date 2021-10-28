@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import useCountry from '../../hooks/useCountries';
 import TablePagination from '@mui/material/TablePagination';
 
+
 const Home: React.FC = () => {
   useCountry();
   const [filters, setFilters] = useState<string>('');

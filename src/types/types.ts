@@ -17,6 +17,7 @@ export type Country = {
 export const FETCH_COUNTRIES = 'FETCH_COUNTRIES'
 export const ADD_FAVORITE = 'ADD_COUNTRY'
 export const DELETE_FAVORITE = 'DELETE_COUNTRY'
+export const FETCH_COUNTRIES_SAGA = "FETCH_COUNTRIES_SAGA"
 
 export type AddFavoriteAction = {
   type: typeof ADD_FAVORITE,
@@ -34,7 +35,7 @@ export type DeleteFavoriteAction = {
 
 export type Favorite = {
   id: string,
-  name: string | null,
+  name: string | null | any,
   flags: string
 }
 

@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h1 {
+    font-size: 40px;
+  }
+  &__table {
+    font-size: 20px;
+    padding-top: 20px;
+
+    .headTable {
+      border-bottom: 1px solid black;
+      padding-bottom: 10px;
+    }
+  }
+}

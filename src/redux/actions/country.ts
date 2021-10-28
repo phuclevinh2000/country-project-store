@@ -2,6 +2,7 @@ import {
   Country,
   FetchCountryAction,
   FETCH_COUNTRIES,
+  FETCH_COUNTRIES_SAGA,
 } from '../../types/types';
 import { Dispatch } from 'redux';
 
@@ -13,6 +14,12 @@ export default function fetchCountries(country: Country[]): FetchCountryAction {
     },
   };
 }
+
+// export function fetchWithSaga() {
+//   return{
+//     type: FETCH_COUNTRIES_SAGA
+//   }
+// }
 
 export function fetchData(){
   return(dispatch: Dispatch) => {

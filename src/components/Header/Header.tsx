@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const Header:React.FC = () => {
   return (
     <Title>
-      <Link to={`/`}>
+      <Link to={`/`} style={{textDecoration: 'none', display: 'flex'}}>
        <HeaderLeft />
       </Link>
       <HeaderRight />

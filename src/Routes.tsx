@@ -5,7 +5,6 @@ import Counter from './components/Counter/Counter';
 
 import Header from './components/Header/Header'
 import Home from './components/Home/Home';
-import MoreDetail from './components/MoreDetail/MoreDetail';
 
 const Routes : React.FC = () => {
   return (
@@ -17,9 +16,6 @@ const Routes : React.FC = () => {
         <Route exact path="/counter" component={Counter} /> */}
         <Route path="/counter">
           <Counter />
-        </Route>
-        <Route path="/moredetail/:id">
-          <MoreDetail />
         </Route>
         <Route path="/cart">
           <Cart />

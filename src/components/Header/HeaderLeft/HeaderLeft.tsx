@@ -16,7 +16,7 @@ const HeaderLeft = () => {
   }, []);
 
   return (
-   <Logo className="ityped" ref={textRef}></Logo>   
+   <Logo className="ityped" ref={textRef} ></Logo>   
   )
 }
 
